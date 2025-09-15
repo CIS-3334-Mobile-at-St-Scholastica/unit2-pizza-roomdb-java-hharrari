@@ -4,22 +4,23 @@ import androidx.lifecycle.ViewModel;
 
 import java.util.List;
 
-public class MainViewModel extends ViewModel {
-    PizzaOrder myPizzaOrder = new PizzaOrder();
 
-    public void placeOrder(String topping, Integer size) {
-        myPizzaOrder.OrderPizza(topping, size);
-    }
+    public class MainViewModel extends ViewModel {
+        PizzaRepository myPizzaOrder = new PizzaRepository();
 
-    // Get the order as a sring
-    public String getOrder() {
-        String orderDescription = "";
-        List<String> pizzaList = myPizzaOrder.getOrder();
-        for (String strPizza:pizzaList ) {
-            orderDescription += strPizza + "\n";
+        public void placeOrder(String topping, Integer size) {
+            myPizzaOrder.OrderPizza(topping, size);
         }
-        return orderDescription;
+
+        // Get the order as a sring
+        public String getOrder() {
+            String orderDescription = "";
+            List<String> pizzaList = myPizzaOrder.getOrder();
+            for (String strPizza:pizzaList ) {
+                orderDescription += strPizza + "\n";
+            }
+            return orderDescription;
+        }
+
+
     }
-
-
-}
